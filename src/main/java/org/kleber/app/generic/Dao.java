@@ -1,17 +1,20 @@
 package org.kleber.app.generic;
 
-public abstract class Dao {
-  protected Class<?> clazz;
+import java.util.List;
+import java.util.ArrayList;
 
-  public Dao(Class<?> clazz) {
+public abstract class Dao<E extends Model> {
+  protected Class<E> clazz;
+
+  public Dao(Class<E> clazz) {
     this.clazz = clazz;
   }
 
-  public Class<?> getClazz() {
+  public Class<E> getClazz() {
     return this.clazz;
   }
 
-  public void setClazz(Class<?> clazz) {
+  public void setClazz(Class<E> clazz) {
     this.clazz = clazz;
   }
 
@@ -27,7 +30,7 @@ public abstract class Dao {
     //
   }
 
-  public void select() {
-    //
+  public List<E> select() {
+    return new ArrayList<E>();
   }
 }
